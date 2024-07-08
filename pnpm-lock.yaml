@@ -86,6 +86,10 @@ importers:
       typescript:
         specifier: 5.5.3
         version: 5.5.3
+    devDependencies:
+      '@types/react-syntax-highlighter':
+        specifier: ^15.5.13
+        version: 15.5.13
 
 packages:
 
@@ -384,6 +388,9 @@ packages:
   '@types/react-dom@18.3.0':
     resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
 
+  '@types/react-syntax-highlighter@15.5.13':
+    resolution: {integrity: sha512-uLGJ87j6Sz8UaBAooU0T6lWJ0dBmjZgN1PZTrj05TNql2/XpC6+4HhMT5syIdFUUt+FASfCeLLv4kBygNU+8qA==}
+
   '@types/react@18.3.3':
     resolution: {integrity: sha512-hti/R0pS0q1/xx+TsI73XIqk26eBsISZ2R0wUijXIngRK9R/e7Xw/cXVxQK7R5JjW+SV4zGcn5hXjudkN/pLIw==}
 
@@ -467,11 +474,6 @@ packages:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
-
-  acorn@8.10.0:
-    resolution: {integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
 
   acorn@8.12.1:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
@@ -2796,6 +2798,10 @@ snapshots:
     dependencies:
       '@types/react': 18.3.3
 
+  '@types/react-syntax-highlighter@15.5.13':
+    dependencies:
+      '@types/react': 18.3.3
+
   '@types/react@18.3.3':
     dependencies:
       '@types/prop-types': 15.7.5
@@ -2851,7 +2857,7 @@ snapshots:
       '@babel/parser': 7.22.10
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
 
   '@vue/compiler-dom@3.3.4':
     dependencies:
@@ -2869,7 +2875,7 @@ snapshots:
       estree-walker: 2.0.2
       magic-string: 0.30.2
       postcss: 8.4.39
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
 
   '@vue/compiler-ssr@3.3.4':
     dependencies:
@@ -2914,8 +2920,6 @@ snapshots:
   acorn-jsx@5.3.2(acorn@8.12.1):
     dependencies:
       acorn: 8.12.1
-
-  acorn@8.10.0: {}
 
   acorn@8.12.1: {}
 
@@ -3220,7 +3224,7 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
       '@types/estree': 1.0.1
-      acorn: 8.10.0
+      acorn: 8.12.1
       estree-walker: 3.0.3
       periscopic: 3.1.0
 
@@ -3251,7 +3255,7 @@ snapshots:
   css-tree@2.3.1:
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
 
   cssesc@3.0.0: {}
 
@@ -3503,7 +3507,7 @@ snapshots:
       eslint: 9.6.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.0(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@9.6.0))(eslint@9.6.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.0)(eslint@9.6.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@9.6.0))(eslint@9.6.0))(eslint@9.6.0)
       eslint-plugin-jsx-a11y: 6.7.1(eslint@9.6.0)
       eslint-plugin-react: 7.34.3(eslint@9.6.0)
       eslint-plugin-react-hooks: 5.0.0-canary-7118f5dd7-20230705(eslint@9.6.0)
@@ -3527,7 +3531,7 @@ snapshots:
       enhanced-resolve: 5.15.0
       eslint: 9.6.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@9.6.0))(eslint@9.6.0))(eslint@9.6.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.0)(eslint@9.6.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@9.6.0))(eslint@9.6.0))(eslint@9.6.0)
       fast-glob: 3.3.1
       get-tsconfig: 4.6.2
       is-core-module: 2.13.0
@@ -3549,7 +3553,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.0)(eslint@9.6.0):
+  eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.0(@typescript-eslint/parser@6.3.0(eslint@9.6.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@9.6.0))(eslint@9.6.0))(eslint@9.6.0):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5
@@ -5304,7 +5308,7 @@ snapshots:
       '@ampproject/remapping': 2.2.1
       '@jridgewell/sourcemap-codec': 1.4.15
       '@jridgewell/trace-mapping': 0.3.19
-      acorn: 8.10.0
+      acorn: 8.12.1
       aria-query: 5.3.0
       axobject-query: 3.2.1
       code-red: 1.0.3
