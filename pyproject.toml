@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "law-chatbot"
+version = "0.1.0"
+description = ""
+authors = ["anpigon <markan82@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+faiss-cpu = "^1.8.0.post1"
+transformers = "^4.42.3"
+python-dotenv = "^1.0.1"
+sentence-transformers = "^3.0.1"
+langchain = "^0.2.6"
+langchain-community = "^0.2.6"
+langchain-openai = "^0.1.14"
+langchain-core = "^0.2.11"
+langchain-huggingface = "^0.0.3"
+kiwipiepy = "^0.18.0"
+fastapi = "^0.111.0"
+rank-bm25 = "^0.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
