@@ -66,13 +66,13 @@ const MarkdownRenderer = ({ content }: { content: string }) => {
         li: ({ node, ...props }) => (
           <li style={{ marginBottom: "0.3em" }} {...props} />
         ),
-        code: ({ node, inline, className, children, ...props }) => {
+        code: ({ node, className, children, ...props }) => {
           const match = /language-(\w+)/.exec(className || "");
-          return !inline && match ? (
+          return match ? (
             <div style={{ position: "relative" }}>
               <SyntaxHighlighter
                 children={String(children).replace(/\n$/, "")}
-                style={atomDark}
+                styles={atomDark}
                 language={match[1]}
                 PreTag="div"
                 customStyle={{
@@ -83,7 +83,7 @@ const MarkdownRenderer = ({ content }: { content: string }) => {
                   wordWrap: "break-word",
                   whiteSpace: "pre-wrap",
                 }}
-                {...props}
+                {...props as any}
               />
               <button
                 onClick={() =>
