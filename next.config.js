@@ -8,6 +8,16 @@ const nextConfig = {
       },
     ];
   },
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+    responseLimit: false,
+  },
+  serverRuntimeConfig: {
+    // API 라우트에 대한 타임아웃 설정 (밀리초 단위)
+    apiTimeout: 60000, // 60초
+  },
 };
 
 module.exports = nextConfig;
