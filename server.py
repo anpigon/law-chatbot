@@ -1,20 +1,24 @@
+import os
+import pickle
+
+import numpy as np
+import torch
+import uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import uvicorn
-import pickle, os, numpy as np
-from dotenv import load_dotenv
-from langchain.schema import Document
-from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.retrievers import BM25Retriever
 from kiwipiepy import Kiwi
-from langchain.retrievers import EnsembleRetriever
 from langchain.callbacks.base import BaseCallbackHandler
-from langchain_openai import ChatOpenAI
-from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnablePassthrough
 from langchain.prompts import ChatPromptTemplate
+from langchain.retrievers import EnsembleRetriever
+from langchain.schema import Document
+from langchain.schema.runnable import RunnablePassthrough
+from langchain_community.retrievers import BM25Retriever
+from langchain_community.vectorstores import FAISS
+from langchain_core.output_parsers import StrOutputParser
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_openai import ChatOpenAI
+from pydantic import BaseModel
 
 load_dotenv()
 
@@ -22,14 +26,6 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 app = FastAPI()
 
-# CORS 설정 추가
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 모든 출처 허용
-    allow_credentials=True,
-    allow_methods=["*"],  # 모든 메서드 허용
-    allow_headers=["*"],  # 모든 헤더 허용
-)
 
 FAISS_DB_INDEX = "./index_faiss"
 BM25_INDEX = "./index_bm25/bm25_kiwi_retriever.pkl"
@@ -73,10 +69,19 @@ def load_retrievers(embeddings):
     )
 
 
+def get_device():
+    if torch.cuda.is_available():
+        return "cuda:0"
+    elif torch.backends.mps.is_available():
+        return "mps"
+    else:
+        return "cpu"
+
+
 # 임베딩 모델 설정
 embeddings = HuggingFaceEmbeddings(
     model_name="BAAI/bge-m3",
-    model_kwargs={"device": "mps"},
+    model_kwargs={"device": get_device()},
     encode_kwargs={"normalize_embeddings": True},
 )
 
