@@ -24,7 +24,7 @@
 1. 저장소 클론:
 
 ```bash
-git clone git@github.com:anpigon/law-chatbot.git
+git clone --recurse-submodules git@github.com:anpigon/law-chatbot.git
 cd law-chatbot
 ```
 
