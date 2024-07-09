@@ -27,8 +27,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 app = FastAPI()
 
 
-FAISS_DB_INDEX = "./index_faiss"
-BM25_INDEX = "./index_bm25/bm25_kiwi_retriever.pkl"
+FAISS_DB_INDEX = "./law-bot/index_faiss"
+BM25_INDEX = "./law-bot/index_bm25/bm25_kiwi_retriever.pkl"
 
 
 class Query(BaseModel):
