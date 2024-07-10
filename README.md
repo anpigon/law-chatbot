@@ -27,6 +27,11 @@
 git clone --recurse-submodules git@github.com:anpigon/law-chatbot.git
 cd law-chatbot
 ```
+> 만약 `law-bot` 폴더가 비어있다면 다음 명령어를 수행하여 서브모듈을 업데이트 해주세요.
+> ```bash
+> git submodule init
+> git submodule update
+> ```
 
 2. 프론트엔드 의존성 설치:
 
